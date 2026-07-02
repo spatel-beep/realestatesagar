@@ -337,15 +337,13 @@
   /* === CURRENT LISTINGS ===
      Refresh this array to keep the site current (can be automated via a scheduled task). */
   const LISTINGS = [
-    { price:"$1,768,500", addr:"582 Arnold Rd, Unit 3", city:"Lawrenceville, GA 30044", beds:5, baths:6, mls:"7744124", tags:["Featured"], imgs:4,
-      url:"https://www.firstunitedrealty.net/property/ga/30044/lawrenceville/none/582-arnold-rd-lot-unit-3/7744124/" },
-    { price:"$1,768,500", addr:"582 Arnold Rd, Unit 1", city:"Lawrenceville, GA 30044", beds:5, baths:6, mls:"7744197", tags:["Featured"], imgs:4,
-      url:"https://www.firstunitedrealty.net/property/ga/30044/lawrenceville/none/582-arnold-rd-lot-unit-1/7744197/" },
+    { price:"$1,768,500", addr:"580 Arnold Road", city:"Lawrenceville, GA 30044", beds:5, baths:6, mls:"7798644", status:"Coming Soon", tags:["Newly Listed","Featured"], imgs:15,
+      url:"https://www.firstunitedrealty.net/property/ga/30044/lawrenceville/none/580-arnold-road/7798644/" },
     { price:"$1,448,595", addr:"2709 Collins Hill", city:"Lawrenceville, GA 30043", beds:4, baths:5, mls:"7677081", tags:["Featured","Virtual Tour"], imgs:82,
       url:"https://www.firstunitedrealty.net/property/ga/30043/lawrenceville/none/2709-collins-hill/7677081/" },
     { price:"$469,000", addr:"1644 Winpost Lane", city:"Atlanta, GA 30318", beds:3, baths:4, mls:"7777465", tags:["Featured"], imgs:24,
       url:"https://www.firstunitedrealty.net/property/ga/30318/atlanta/ashford-lane/1644-winpost-lane/7777465/" },
-    { price:"$2,850", suffix:"/mo", addr:"1644 Winpost Lane", city:"Atlanta, GA 30318", beds:3, baths:4, mls:"7787037", tags:["Newly Listed","For Rent"], imgs:24,
+    { price:"$2,810", suffix:"/mo", addr:"1644 Winpost Lane", city:"Atlanta, GA 30318", beds:3, baths:4, mls:"7787037", tags:["Featured","For Rent"], imgs:24,
       url:"https://www.firstunitedrealty.net/property/ga/30318/atlanta/ashford-lane/1644-winpost-lane/7787037/" }
   ];
 
@@ -356,7 +354,7 @@
       return;
     }
     grid.innerHTML = LISTINGS.map(l=>{
-      const tags = '<span class="tag active">Active</span>' + (l.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+      const tags = `<span class="tag active">${l.status||'Active'}</span>` + (l.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
       const view = l.imgs ? `View ${l.imgs} Photos &rarr;` : 'View Listing &rarr;';
       return `
       <article class="card">
